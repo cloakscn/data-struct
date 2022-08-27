@@ -9,6 +9,8 @@ public class Main {
         System.out.println(pre);
         System.out.println(post);
 
+        System.out.println(String.format("CCCount is %d.", new CC(adjSet).count()));
+
         Graph adjMatrix = new AdjMatrix("graph/src/sources/AdjMatrix.txt");
         System.out.println(adjMatrix);
 
