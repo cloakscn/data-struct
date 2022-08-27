@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -19,7 +20,7 @@ public class AdjSet implements Graph {
             if (E < 0) throw new IllegalArgumentException("E must be non-negative");
             adj = new TreeSet[V];
             for (int i = 0; i < V; i++) {
-                adj[i] = new TreeSet<Integer>();
+                adj[i] = new TreeSet();
             }
 
             // todo 构造邻接矩阵
@@ -86,7 +87,7 @@ public class AdjSet implements Graph {
 
     // 获取邻边接口
     @Override
-    public Iterable<Integer> adj(int v) {
+    public Iterable adj(int v) {
         validateVertex(v);
         return adj[v];
     }
@@ -96,10 +97,5 @@ public class AdjSet implements Graph {
     public int degree(int v) {
         validateVertex(v);
         return adj[v].size();
-    }
-
-    @Override
-    public void dfs(int v) {
-
     }
 }

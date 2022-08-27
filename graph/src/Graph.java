@@ -1,4 +1,4 @@
-public interface Graph<T> {
+public interface Graph {
 
     void validateVertex(int v);
 
@@ -8,10 +8,7 @@ public interface Graph<T> {
 
     boolean hasEdge(int v, int w);
 
-    Iterable<T> adj(int v);
+    Iterable<Integer> adj(int v);
 
     int degree(int v);
-
-    // 深度优先遍历
-    void dfs(int v);
 }

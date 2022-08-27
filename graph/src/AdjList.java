@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class AdjList implements Graph<Integer> {
+public class AdjList implements Graph {
 
     private int V;
     private int E;

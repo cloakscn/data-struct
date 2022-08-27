@@ -6,6 +6,9 @@ public class Main {
         System.out.println("Hello world!");
         Graph adjSet = new AdjSet("graph/src/sources/AdjSet.txt");
         System.out.println(adjSet);
+        GraphDFS graphDFS = new GraphDFS(adjSet);
+        Iterable<Integer> order = graphDFS.order();
+        System.out.println(order);
 
         Graph adjMatrix = new AdjMatrix("graph/src/sources/AdjMatrix.txt");
         System.out.println(adjMatrix);

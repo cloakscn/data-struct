@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdjMatrix implements Graph<Integer> {
+public class AdjMatrix implements Graph {
 
     private int V;
     private int E;
