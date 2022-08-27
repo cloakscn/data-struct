@@ -6,25 +6,36 @@ public class GraphDFS {
 
     private boolean[] visited;
 
-    private ArrayList<Integer> order = new ArrayList<Integer>();
+    private ArrayList<Integer> pre = new ArrayList<Integer>();
+    private ArrayList<Integer> post = new ArrayList<Integer>();
 
     public GraphDFS(Graph G) {
         this.G = G;
         visited = new boolean[G.V()];
-        dfs(0);
-    }
 
-    private void dfs(int v) {
-        visited[v] = true;
-        order.add(v);
-        for(int w : G.adj(v)) {
-            if (!visited[w]) {
-                dfs(w);
+        // 保证非连通图遍历不遗漏
+        for (int i = 0; i < visited.length; i++) {
+            if (!visited[i]) {
+                dfs(i);
             }
         }
     }
 
-    public Iterable<Integer> order() {
-        return order;
+    private void dfs(int v) {
+        visited[v] = true;
+        pre.add(v);
+        for (int w : G.adj(v)) {
+            if (!visited[w]) {
+                dfs(w);
+            }
+        }
+        post.add(v);
+    }
+
+    public Iterable<Integer> pre() {
+        return pre;
+    }
+    public Iterable<Integer> post() {
+        return post;
     }
 }
