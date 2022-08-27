@@ -1,15 +1,15 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.TreeSet;
 
-public class AdjMatrix implements Graph<Integer> {
+public class AdjSet implements Graph {
 
     private int V;
     private int E;
-    private int[][] adj;
+    private TreeSet<Integer>[] adj;
 
-    public AdjMatrix(String filename) {
+    public AdjSet(String filename) {
         File file = new File(filename);
 
         try (Scanner scanner = new Scanner(file)) {
@@ -17,7 +17,10 @@ public class AdjMatrix implements Graph<Integer> {
             if (V < 0) throw new IllegalArgumentException("V must be non-negative");
             E = scanner.nextInt();
             if (E < 0) throw new IllegalArgumentException("E must be non-negative");
-            adj = new int[V][V];
+            adj = new TreeSet[V];
+            for (int i = 0; i < V; i++) {
+                adj[i] = new TreeSet<Integer>();
+            }
 
             // todo 构造邻接矩阵
             for (int i = 0; i < E; i++) {
@@ -28,9 +31,9 @@ public class AdjMatrix implements Graph<Integer> {
 
                 // 无向无权图自环边和平行边是不允许的
                 if (a == b) throw new IllegalArgumentException("Self Loop is Detected!");
-                if (adj[a][b] == 1) throw new IllegalArgumentException("Parallel Edge are Detected!");
-                adj[a][b] = 1;
-                adj[b][a] = 1;
+                if (adj[a].contains(b)) throw new IllegalArgumentException("Parallel Edge are Detected!");
+                adj[a].add(b);
+                adj[b].add(a);
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -51,16 +54,17 @@ public class AdjMatrix implements Graph<Integer> {
         StringBuffer sb = new StringBuffer();
 
         sb.append(String.format("V = %d, E = %d\n", V, E));
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                sb.append(String.format("%d ", adj[i][j]));
+        for (int v = 0; v < V; v++) {
+            sb.append(String.format("%d : ", v));
+            for (int w : adj[v]) {
+                sb.append(String.format("%d ", w));
             }
             sb.append("\n");
         }
 
         return sb.toString();
     }
-    
+
     // 对外开放接口
     @Override
     public int V() {
@@ -77,25 +81,25 @@ public class AdjMatrix implements Graph<Integer> {
     public boolean hasEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
-        return adj[v][w] == 1;
+        return adj[v].contains(w);
     }
 
     // 获取邻边接口
     @Override
-    public ArrayList<Integer> adj(int v) {
+    public Iterable<Integer> adj(int v) {
         validateVertex(v);
-        ArrayList<Integer> res = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
-            if (adj[v][i] == 1) {
-                res.add(i);
-            }
-        }
-        return res;
+        return adj[v];
     }
 
     // 获取顶点的度
     @Override
     public int degree(int v) {
-        return adj(v).size();
+        validateVertex(v);
+        return adj[v].size();
+    }
+
+    @Override
+    public void dfs(int v) {
+
     }
 }

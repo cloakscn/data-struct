@@ -1,10 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class AdjList {
+public class AdjList implements Graph<Integer> {
 
     private int V;
     private int E;
@@ -41,13 +40,6 @@ public class AdjList {
         }
     }
 
-    // 判断顶点合法性
-    private void validateVertex(int v) {
-        if (v < 0 || v >= V) {
-            throw new IllegalArgumentException("vertex " + v + " is invalid");
-        }
-    }
-
     @Override
     public String toString() {
 
@@ -65,16 +57,26 @@ public class AdjList {
         return sb.toString();
     }
 
+    @Override
+    public void validateVertex(int v) {
+        if (v < 0 || v >= V) {
+            throw new IllegalArgumentException("vertex " + v + " is invalid");
+        }
+    }
+
     // 对外开放接口
+    @Override
     public int V() {
         return V;
     }
 
+    @Override
     public int E() {
         return E;
     }
 
     // 是否有邻边
+    @Override
     public boolean hasEdge(int v, int w) {
         validateVertex(v);
         validateVertex(w);
@@ -82,18 +84,17 @@ public class AdjList {
     }
 
     // 获取邻边接口
-    public LinkedList<Integer> adj(int v) {
+    @Override
+    public Iterable<Integer> adj(int v) {
         validateVertex(v);
         return adj[v];
     }
 
     // 获取顶点的度
+    @Override
     public int degree(int v) {
-        return adj(v).size();
+        validateVertex(v);
+        return adj[v].size();
     }
 
-    public static void main(String[] args) {
-        AdjList adjList = new AdjList("graph/src/sources/AdjMatrix.txt");
-        System.out.println(adjList);
-    }
 }
