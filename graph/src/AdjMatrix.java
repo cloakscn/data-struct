@@ -95,6 +95,6 @@ public class AdjMatrix {
 
     public static void main(String[] args) {
         AdjMatrix adjMatrix = new AdjMatrix("graph/src/sources/AdjMatrix.txt");
-        System.out.println(adjMatrix.toString());
+        System.out.println(adjMatrix);
     }
 }
