@@ -9,6 +9,8 @@ public class GraphDFS {
     private ArrayList<Integer> pre = new ArrayList<Integer>();
     private ArrayList<Integer> post = new ArrayList<Integer>();
 
+    public GraphDFS() {}
+
     public GraphDFS(Graph G) {
         this.G = G;
         visited = new boolean[G.V()];

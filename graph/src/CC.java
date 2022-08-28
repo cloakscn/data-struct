@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.TreeSet;
 
-public class CC {
+public class CC extends GraphDFS {
 
     private Graph G;
 
