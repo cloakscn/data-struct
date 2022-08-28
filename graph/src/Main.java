@@ -5,15 +5,15 @@ public class Main {
         System.out.println("Hello world!\n");
         Graph adjSet = new AdjSet("graph/src/sources/AdjSet.txt");
         System.out.println(adjSet);
-        System.out.println();
 
+        System.out.println("\nGraphDFS:\n");
         GraphDFS graphDFS = new GraphDFS(adjSet);
         Iterable<Integer> pre = graphDFS.pre();
         Iterable<Integer> post = graphDFS.post();
         System.out.println("pre dfs is " + pre);
         System.out.println("post dfs is " + post);
-        System.out.println();
 
+        System.out.println("\nCC:\n");
         CC cc = new CC(adjSet);
         int count = cc.count();
         boolean connected = cc.isConnected(0, 6);
@@ -31,6 +31,18 @@ public class Main {
             }
             System.out.println();
         }
+
+        System.out.println("\nCC path:\n");
+        SingleSourcePath singleSourcePath = new SingleSourcePath(adjSet, 0);
+        System.out.println(String.format("6 is connected to 0: %b", singleSourcePath.isConnectedTo(6)));
+        System.out.println("the path is " + singleSourcePath.path(6));
+        System.out.println(String.format("4 is connected to 0: %b", singleSourcePath.isConnectedTo(4)));
+        System.out.println("the path is " + singleSourcePath.path(4));
+
+        System.out.println("\nPath\n");
+        Path path = new Path(adjSet, 0, 2);
+        System.out.println(String.format("0 -> 2: %b", path.isConnected()));
+        System.out.println("the path is " + path.path());
 
         System.out.println();
         Graph adjMatrix = new AdjMatrix("graph/src/sources/AdjMatrix.txt");
