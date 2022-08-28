@@ -33,8 +33,26 @@ public class CC {
         }
     }
 
+    public boolean isConnected(int v, int w) {
+        G.validateVertex(v);
+        G.validateVertex(w);
+        return visited[v] == visited[w];
+    }
+
+    public ArrayList<Integer>[] components() {
+        ArrayList<Integer>[] result = new ArrayList[CCCount];
+        for (int i = 0; i < CCCount; i++) {
+            result[i] = new ArrayList<>();
+        }
+
+        for (int v = 0; v < G.V(); v++) {
+            result[visited[v]].add(v);
+        }
+        return result;
+    }
+
     public int count() {
-        for(int item : visited) {
+        for (int item : visited) {
             System.out.print(item + "\t");
         }
         return CCCount;
