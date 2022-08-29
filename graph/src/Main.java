@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -43,6 +44,10 @@ public class Main {
         Path path = new Path(adjSet, 0, 2);
         System.out.println(String.format("0 -> 2: %b", path.isConnected()));
         System.out.println("the path is " + path.path());
+
+        System.out.println("\nCycleDetection:\n");
+        CycleDetection cycleDetection = new CycleDetection(adjSet);
+        System.out.println("hasCycle: " + cycleDetection.hasCycle());
 
         System.out.println();
         Graph adjMatrix = new AdjMatrix("graph/src/sources/AdjMatrix.txt");
