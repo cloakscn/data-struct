@@ -49,6 +49,21 @@ public class Main {
         CycleDetection cycleDetection = new CycleDetection(adjSet);
         System.out.println("hasCycle: " + cycleDetection.hasCycle());
 
+        System.out.println("\nBFS\n");
+        Graph graph = new AdjSet("graph/src/sources/GraphBFS.txt");
+        System.out.println(adjSet);
+        GraphBFS graphBFS = new GraphBFS(graph);
+        System.out.println("order is " + graphBFS.order());
+
+
+        System.out.println("\nByPartitionDetection:\n");
+        BiPartitionDetection biPartitionDetection = new BiPartitionDetection(adjSet);
+        System.out.println("isBipartite: " + biPartitionDetection.isBipartite());
+        AdjSet biPartition = new AdjSet("graph/src/sources/BiPartitionDetection.txt");
+        BiPartitionDetection biPartitionDetection1 = new BiPartitionDetection(biPartition);
+        System.out.println("isBipartite: " + biPartitionDetection1.isBipartite());
+
+
         System.out.println();
         Graph adjMatrix = new AdjMatrix("graph/src/sources/AdjMatrix.txt");
         System.out.println(adjMatrix);
