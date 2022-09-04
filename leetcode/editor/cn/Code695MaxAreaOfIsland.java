@@ -42,7 +42,6 @@
 
 package cn;
 
-import java.util.HashSet;
 
 /**
  * @author cloaks
@@ -75,8 +74,7 @@ public class Code695MaxAreaOfIsland {
         // 四联通
         private final int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         private int[][] grid;
-        private boolean[] visited;
-        private HashSet<Integer>[] G;
+        private boolean[][] visited;
 
         /**
          * 1. 二维转一维
@@ -90,48 +88,37 @@ public class Code695MaxAreaOfIsland {
             col = grid[0].length;
             if (col == 0) return 0;
             this.grid = grid;
-            
-            G = constructGraph();
 
             int result = 0;
-            visited = new boolean[G.length];
-            for (int v = 0; v < visited.length; v++) {
-                // todo one dimensional 2 two dimensional
-                int x = v / col, y = v % col;
-                if (!visited[v] && grid[x][y] == 1) {
-                    result = Math.max(result, dfs(v));
+            visited = new boolean[row][col];
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    if (!visited[i][j] && grid[i][j] == 1) {
+                        result = Math.max(result, dfs(i, j));
+                    }
                 }
             }
             return result;
         }
 
         /**
-         * constructGraph
-         * @return Graph Implement By HashSet
+         * 深度优先遍历
+         * @param x x coordinate
+         * @param y y coordinate
+         * @return 联通分量的数量
          */
-        private HashSet<Integer>[] constructGraph() {
-            HashSet<Integer>[] g = new HashSet[row * col];
-            for (int i = 0; i < g.length; i++) {
-                g[i] = new HashSet<>();
-            }
+        private int dfs(int x, int y) {
+            int result = 1;
+            visited[x][y] = true;
 
-            for (int v = 0; v < g.length; v++) {
-                int x = v / col, y = v % col;
-                if (grid[x][y] == 1) {
-                    for (int d = 0; d < 4; d++) {
-                        // todo point direction ↑ ↓ ← →
-                        int nextX = x + directions[d][0];
-                        int nextY = y + directions[d][1];
-                        if (inArea(nextX, nextY) && grid[nextX][nextY] == 1) {
-                            // todo twoDimensional2oneDimensional
-                            int next = nextX * col + nextY;
-                            g[v].add(next);
-                            g[next].add(v);
-                        }
-                    }
+            for (int d = 0; d < 4; d++) {
+                int nextX = x + directions[d][0];
+                int nextY = y + directions[d][1];
+                if (inArea(nextX, nextY) && !visited[nextX][nextY] && grid[nextX][nextY] == 1) {
+                    result += dfs(nextX, nextY);
                 }
             }
-            return g;
+            return result;
         }
 
         /**
@@ -142,23 +129,6 @@ public class Code695MaxAreaOfIsland {
          */
         private boolean inArea(int nextX, int nextY) {
             return nextX >= 0 && nextX < row && nextY >= 0 && nextY < col;
-        }
-
-        /**
-         * 图的深度优先遍历
-         * @param v 图的顶点
-         * @return 返回顶点 v 联通分量的数量
-         */
-        private int dfs(int v) {
-            int result = 1;
-            visited[v] = true;
-
-            for (int w : G[v]) {
-                if (!visited[w]) {
-                    result += dfs(w);
-                }
-            }
-            return result;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
