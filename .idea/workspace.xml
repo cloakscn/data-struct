@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="二分图检测">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph/src/SingleSourcePathBFS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph/src/SingleSourcePathDFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-struct.iml" beforeDir="false" afterPath="$PROJECT_DIR$/data-struct.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/SingleSourcePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/SingleSourcePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/src/doc/Path.md" beforeDir="false" afterPath="$PROJECT_DIR$/graph/src/doc/Path.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.jdks/openjdk-18.0.2/lib/src.zip!/java.base/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.jdks/openjdk-18.0.2/lib/src.zip!/java.base/java/util/List.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2E2JBPtMAMHvltF3iltdtDfUUY9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "last_opened_file_path": "C:/workspace/fengtai/ruoyi-clouds",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "leetcode.id"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\java\data-struct\graph\src\doc" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Code785IsGraphBipartite">
+    <configuration name="Code785IsGraphBipartite" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.Code785IsGraphBipartite" />
+      <module name="leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="graph" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Code785IsGraphBipartite" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="实现深度优先遍历 先后">
+      <created>1661603945827</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661603945827</updated>
+    </task>
+    <task id="LOCAL-00002" summary="联通分量实现">
+      <created>1661611648380</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661611648380</updated>
+    </task>
+    <task id="LOCAL-00003" summary="联通分量 是否相连&#10;联通分享 详细内容">
+      <created>1661660487687</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661660487687</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="联通分量 是否相连&#10;联通分享 详细内容" />
+      <created>1661787619835</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661787619835</updated>
+      <workItem from="1661787623529" duration="6923000" />
+      <workItem from="1662034484692" duration="2663000" />
+      <workItem from="1662219609125" duration="781000" />
+      <workItem from="1662253545834" duration="6794000" />
+      <workItem from="1662290737701" duration="4332000" />
+    </task>
+    <task id="LOCAL-00004" summary="图中是否有环检测">
+      <created>1661790513580</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661790513580</updated>
+    </task>
+    <task id="LOCAL-00005" summary="二分图检测">
+      <created>1662219650357</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662219650357</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="实现深度优先遍历 先后" />
+    <MESSAGE value="联通分量实现" />
+    <MESSAGE value="联通分量 是否相连&#10;联通分享 详细内容" />
+    <MESSAGE value="图中是否有环检测" />
+    <MESSAGE value="二分图检测" />
+    <option name="LAST_COMMIT_MESSAGE" value="二分图检测" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/leetcode/editor/cn/[785]_is-graph-bipartite.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

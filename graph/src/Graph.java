@@ -1,5 +1,6 @@
 public interface Graph {
 
+
     void validateVertex(int v);
 
     int V();

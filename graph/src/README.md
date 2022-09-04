@@ -10,6 +10,7 @@
 # 深度优先遍历
 
 ```shell
+# 递归
 visited[0...V-1] = false;
 dfs(0);
 
@@ -21,6 +22,28 @@ dfs(int v) {
       dfs(w)
       }
     }
+}
+# 非递归
+visited[0...V-1] = false;
+
+for (int v = 0; v < V; v++) {
+  if (!visited[v])
+    bfs(v);
+}
+
+dfs(int s) {
+  stack.add(s)
+  visited[s] = true;
+  while(!stack.isEmpty()) {
+    int v = stack.remove();
+    
+    for (int w : G.adj(v)) {
+      if (!visited[w]) {
+        stack.add(w);
+        visited[w] = true;
+        }
+    }
+  }
 }
 ```
 
@@ -39,5 +62,59 @@ dfs(int v) {
 
 # 广度优先遍历
 
+> BFS 只能用于无权图
+
+```shell
+visited[0...V-1] = false;
+
+for (int v = 0; v < V; v++) {
+  if (!visited[v])
+    bfs(v);
+}
+
+bfs(int s) {
+  queue.add(s)
+  visited[s] = true;
+  while(!queue.isEmpty()) {
+    int v = queue.remove();
+    
+    for (int w : G.adj(v)) {
+      if (!visited[w]) {
+        queue.add(w);
+        visited[w] = true;
+        }
+    }
+  }
+}
+```
+
 * 复杂度 O(V + E)
-* 
+* 可以用于求最短路径
+
+# BFS 和 DFS 的比较
+
+本质上 BFS 和 DFS 在非递归实现上仅仅是存储容器的改变
+
+```shell
+visited[0...V-1] = false;
+
+for (int v = 0; v < V; v++) {
+  if (!visited[v])
+    search(v);
+}
+
+search(int s) {
+  x.add(s)
+  visited[s] = true;
+  while(!x.isEmpty()) {
+    int v = x.remove();
+    
+    for (int w : G.adj(v)) {
+      if (!visited[w]) {
+        x.add(w);
+        visited[w] = true;
+        }
+    }
+  }
+}
+```
