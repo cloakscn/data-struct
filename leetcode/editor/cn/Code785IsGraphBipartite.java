@@ -61,49 +61,51 @@ import java.util.Arrays;
 public class Code785IsGraphBipartite {
     public static void main(String[] args) {
         System.out.println("hello world!");
-        Solution solution = new Solution();
+        Solution solution = new Code785IsGraphBipartite().new Solution();
         int[][] graph = {{1, 3}, {0, 2}, {1, 3}, {0, 2}};
         System.out.println(solution.isBipartite(graph));
     }
-}
 
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    private int[] visited;
-    private int[][] graph;
+    //leetcode submit region begin(Prohibit modification and deletion)
+    class Solution {
+        private int[] visited;
+        private int[][] graph;
 
-    public boolean isBipartite(int[][] graph) {
+        public boolean isBipartite(int[][] graph) {
 
-        this.graph = graph;
+            this.graph = graph;
 
-        int V = graph.length;
-        visited = new int[V];
-        Arrays.fill(visited, -1);
+            int V = graph.length;
+            visited = new int[V];
+            Arrays.fill(visited, -1);
 
-        for (int v = 0; v < V; v++) {
-            if (visited[v] == -1) {
-                if (!dfs(v, 0)) return false;
+            for (int v = 0; v < V; v++) {
+                if (visited[v] == -1) {
+                    if (!dfs(v, 0)) return false;
+                }
             }
+            return true;
         }
-        return true;
-    }
 
-    /**
-     * 深度优先遍历
-     * todo 可以尝试使用非递归方式实现该算法
-     * @param v     顶点
-     * @param color 染色
-     * @return 返回是否是二分图
-     */
-    private boolean dfs(int v, int color) {
-        visited[v] = color;
+        /**
+         * 深度优先遍历
+         * todo 可以尝试使用非递归方式实现该算法
+         * @param v     顶点
+         * @param color 染色
+         * @return 返回是否是二分图
+         */
+        private boolean dfs(int v, int color) {
+            visited[v] = color;
 
-        for (int w : graph[v]) {
-            if (visited[w] == -1) {
-                if (!dfs(w, 1 - color)) return false;
-            } else if (visited[v] == visited[w]) return false;
+            for (int w : graph[v]) {
+                if (visited[w] == -1) {
+                    if (!dfs(w, 1 - color)) return false;
+                } else if (visited[v] == visited[w]) return false;
+            }
+            return true;
         }
-        return true;
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
+
+}
+
