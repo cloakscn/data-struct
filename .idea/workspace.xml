@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="Code695MaxAreaOfIsland" />
+    <list default="true" id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="Code695MaxAreaOfIsland">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code695MaxAreaOfIsland.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code695MaxAreaOfIsland.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +136,7 @@
       <workItem from="1662034484692" duration="2663000" />
       <workItem from="1662219609125" duration="781000" />
       <workItem from="1662253545834" duration="6794000" />
-      <workItem from="1662290737701" duration="10191000" />
+      <workItem from="1662290737701" duration="12484000" />
     </task>
     <task id="LOCAL-00004" summary="图中是否有环检测">
       <created>1661790513580</created>
@@ -163,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662303692159</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Code695MaxAreaOfIsland">
+      <created>1662303788895</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662303788895</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,16 +207,6 @@
           <url>file://$PROJECT_DIR$/leetcode/editor/cn/[785]_is-graph-bipartite.java</url>
           <line>55</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/leetcode/editor/cn/Code695MaxAreaOfIsland.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/leetcode/editor/cn/Code695MaxAreaOfIsland.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

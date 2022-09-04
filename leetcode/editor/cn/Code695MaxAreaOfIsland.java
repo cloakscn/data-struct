@@ -42,6 +42,8 @@
 
 package cn;
 
+import java.util.HashSet;
+
 /**
  * @author cloaks
  * @questionId 695
@@ -68,80 +70,95 @@ public class Code695MaxAreaOfIsland {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        private int col, row, x, y, size, max;
+        private int col, row;
+
+        // 四联通
+        private final int[][] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         private int[][] grid;
+        private boolean[] visited;
+        private HashSet<Integer>[] G;
 
+        /**
+         * 1. 二维转一维
+         * 2. 四联通
+         */
         public int maxAreaOfIsland(int[][] grid) {
-            /**
-             * 1. 二维转一维
-             * 2. 四联通
-             */
-            if (grid == null) return 0;
 
+            if (grid == null) return 0;
             row = grid.length;
             if (row == 0) return 0;
             col = grid[0].length;
             if (col == 0) return 0;
             this.grid = grid;
+            
+            G = constructGraph();
 
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < col; j++) {
-                    if (grid[i][j] == 0) continue;
-                    else if (grid[i][j] == -1) continue;
-                    dfs(i, j);
-                    if (size > max) {
-                        max = size;
-                    }
-                    size = 0;
+            int result = 0;
+            visited = new boolean[G.length];
+            for (int v = 0; v < visited.length; v++) {
+                // todo one dimensional 2 two dimensional
+                int x = v / col, y = v % col;
+                if (!visited[v] && grid[x][y] == 1) {
+                    result = Math.max(result, dfs(v));
                 }
             }
-            return max;
+            return result;
         }
 
-        private boolean nextPoint(int x, int y, String direction) {
-            int nextX = 0, nextY = 0;
-            switch (direction) {
-                case "top":
-                    nextX = x - 1;
-                    nextY = y;
-                    break;
-                case "bottom":
-                    nextX = x + 1;
-                    nextY = y;
-                    break;
-                case "left":
-                    nextX = x;
-                    nextY = y - 1;
-                    break;
-                case "right":
-                    nextX = x;
-                    nextY = y + 1;
-                    break;
+        /**
+         * constructGraph
+         * @return Graph Implement By HashSet
+         */
+        private HashSet<Integer>[] constructGraph() {
+            HashSet<Integer>[] g = new HashSet[row * col];
+            for (int i = 0; i < g.length; i++) {
+                g[i] = new HashSet<>();
             }
-            if (nextX < 0 || nextX >= row || nextY < 0 || nextY >= col) {
-                return false;
+
+            for (int v = 0; v < g.length; v++) {
+                int x = v / col, y = v % col;
+                if (grid[x][y] == 1) {
+                    for (int d = 0; d < 4; d++) {
+                        // todo point direction ↑ ↓ ← →
+                        int nextX = x + directions[d][0];
+                        int nextY = y + directions[d][1];
+                        if (inArea(nextX, nextY) && grid[nextX][nextY] == 1) {
+                            // todo twoDimensional2oneDimensional
+                            int next = nextX * col + nextY;
+                            g[v].add(next);
+                            g[next].add(v);
+                        }
+                    }
+                }
             }
-            this.x = nextX;
-            this.y = nextY;
-            return true;
+            return g;
         }
 
-        private void dfs(int x, int y) {
-            size++;
-            grid[x][y] = -1;
+        /**
+         * 坐标合法性校验
+         * @param nextX x
+         * @param nextY y
+         * @return inArea true notInArea false
+         */
+        private boolean inArea(int nextX, int nextY) {
+            return nextX >= 0 && nextX < row && nextY >= 0 && nextY < col;
+        }
 
-            if (nextPoint(x, y, "top") && grid[this.x][this.y] == 1)
-                dfs(this.x, this.y);
+        /**
+         * 图的深度优先遍历
+         * @param v 图的顶点
+         * @return 返回顶点 v 联通分量的数量
+         */
+        private int dfs(int v) {
+            int result = 1;
+            visited[v] = true;
 
-            if (nextPoint(x, y, "bottom") && grid[this.x][this.y] == 1)
-                dfs(this.x, this.y);
-
-            if (nextPoint(x, y, "left") && grid[this.x][this.y] == 1)
-                dfs(this.x, this.y);
-
-            if (nextPoint(x, y, "right") && grid[this.x][this.y] == 1)
-                dfs(this.x, this.y);
-
+            for (int w : G[v]) {
+                if (!visited[w]) {
+                    result += dfs(w);
+                }
+            }
+            return result;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
