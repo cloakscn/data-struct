@@ -72,7 +72,7 @@ public class Code1034ColoringABorder{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[][] colorBorder(int[][] grid, int row, int col, int color) {
-
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -1,6 +1,12 @@
 # data-struct
 data struct &amp; leetcode demo
 
+# 概念
+
+## 图
+* 状态表达
+* 状态压缩 5，4 -> 10 * 5 + 4 -> 10 * x + y 两个元素转换为一个元素
+
 # leetcode config
 
 1. code filename

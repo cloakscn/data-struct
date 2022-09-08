@@ -60,7 +60,7 @@ public class Code733FloodFill{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
-
+return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

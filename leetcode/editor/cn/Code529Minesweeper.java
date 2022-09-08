@@ -77,7 +77,7 @@ public class Code529Minesweeper{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public char[][] updateBoard(char[][] board, int[] click) {
-
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
