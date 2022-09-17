@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="水桶问题">
-      <change afterPath="$PROJECT_DIR$/leetcode/editor/cn/custom/Code002Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/leetcode/editor/cn/doc/content/Code773SlidingPuzzle.md" afterDir="false" />
+    <list default="true" id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="Code773SlidingPuzzle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code001Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/custom/Code001Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code773SlidingPuzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code773SlidingPuzzle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +175,7 @@
       <workItem from="1662290737701" duration="15494000" />
       <workItem from="1662385235951" duration="16999000" />
       <workItem from="1663341353404" duration="134000" />
-      <workItem from="1663424044907" duration="4038000" />
+      <workItem from="1663424044907" duration="5697000" />
     </task>
     <task id="LOCAL-00004" summary="图中是否有环检测">
       <created>1661790513580</created>
@@ -263,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662646486376</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Code773SlidingPuzzle">
+      <created>1663428385424</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1663428385425</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +301,8 @@
     <MESSAGE value="modify README.md" />
     <MESSAGE value="Code752OpenTheLock" />
     <MESSAGE value="水桶问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="水桶问题" />
+    <MESSAGE value="Code773SlidingPuzzle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code773SlidingPuzzle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -315,6 +321,11 @@
           <url>file://$PROJECT_DIR$/leetcode/editor/cn/Code1091ShortestPathInBinaryMatrix.java</url>
           <line>65</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/leetcode/editor/cn/Code773SlidingPuzzle.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -62,6 +62,7 @@
 package cn;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author cloaks
@@ -75,10 +76,11 @@ public class Code773SlidingPuzzle {
         System.out.println("hello world!");
         Solution solution = new Code773SlidingPuzzle().new Solution();
         int[][] board = {
-                {1, 2, 3},
-                {4, 5, 0}
+                {5, 4, 3},
+                {2, 1, 0}
         };
         System.out.println(solution.slidingPuzzle(board));
+        solution.path();
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -91,8 +93,11 @@ public class Code773SlidingPuzzle {
                 {0, -1}
         };
 
+        private Map<String, String> path = new HashMap<>();
+        private Map<String, Integer> visited = new HashMap();
+
         public int slidingPuzzle(int[][] board) {
-            Map<String, Integer> visited = new HashMap();
+
             Queue<String> queue = new LinkedList<>();
 
             String initialState = board2String(board);
@@ -101,6 +106,7 @@ public class Code773SlidingPuzzle {
             // todo BFS
             queue.offer(initialState);
             visited.put(initialState, 0);
+            path.put(initialState, "root");
 
             while (!queue.isEmpty()) {
                 String current = queue.poll();
@@ -111,6 +117,7 @@ public class Code773SlidingPuzzle {
                     if (!visited.containsKey(next)) {
                         queue.offer(next);
                         visited.put(next, visited.get(current) + 1);
+                        path.put(next, current);
 
                         // todo return
                         if (next.equals("123450")) return visited.get(next);
@@ -118,6 +125,19 @@ public class Code773SlidingPuzzle {
                 }
             }
             return -1;
+        }
+
+        private void path() {
+            ArrayList<String> list = new ArrayList<>();
+            String target = "123450";
+            list.add(target);
+            while (!"root".equals(target)) {
+                target = path.get(target);
+                list.add(target);
+            }
+            Collections.reverse(list);
+            String result = list.stream().map(String::valueOf).collect(Collectors.joining("->"));
+            System.out.println(result);
         }
 
         /**
