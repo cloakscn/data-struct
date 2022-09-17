@@ -1,7 +1,6 @@
-package cn;
+package cn.custom;
 
 import java.util.*;
-import java.util.stream.Collector;
 
 public class Code001Graph {
     public static void main(String[] args) {

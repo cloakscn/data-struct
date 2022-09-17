@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="Code752OpenTheLock">
-      <change afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code001Graph.java" afterDir="false" />
+    <list default="true" id="89ad2590-c3f9-45aa-a97e-f9eee801fa7c" name="Changes" comment="水桶问题">
+      <change afterPath="$PROJECT_DIR$/leetcode/editor/cn/custom/Code002Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/leetcode/editor/cn/doc/content/Code773SlidingPuzzle.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code1020NumberOfEnclaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code1020NumberOfEnclaves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code1034ColoringABorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code1034ColoringABorder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code200NumberOfIslands.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code200NumberOfIslands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code529Minesweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code529Minesweeper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code733FloodFill.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code733FloodFill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code827MakingALargeIsland.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/Code827MakingALargeIsland.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leetcode/editor/cn/Code001Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/editor/cn/custom/Code001Graph.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,8 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "leetcode.id"
+    "settings.editor.selected.configurable": "leetcode.id",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -69,13 +65,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Code001Graph">
+  <component name="RunManager" selected="Application.Code773SlidingPuzzle">
     <configuration name="Code001Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.Code001Graph" />
+      <option name="MAIN_CLASS_NAME" value="cn.custom.Code001Graph" />
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.*" />
+          <option name="PATTERN" value="cn.custom.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,7 +84,7 @@
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.*" />
+          <option name="PATTERN" value="cn.custom.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,7 +97,7 @@
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.*" />
+          <option name="PATTERN" value="cn.custom.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,7 +110,7 @@
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.*" />
+          <option name="PATTERN" value="cn.custom.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,8 +118,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Code785IsGraphBipartite" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.Code785IsGraphBipartite" />
+    <configuration name="Code773SlidingPuzzle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.Code773SlidingPuzzle" />
       <module name="leetcode" />
       <extension name="coverage">
         <pattern>
@@ -137,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Code773SlidingPuzzle" />
         <item itemvalue="Application.Code001Graph" />
         <item itemvalue="Application.Code752OpenTheLock" />
         <item itemvalue="Application.Code1091ShortestPathInBinaryMatrix" />
         <item itemvalue="Application.Code695MaxAreaOfIsland" />
-        <item itemvalue="Application.Code785IsGraphBipartite" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +175,9 @@
       <workItem from="1662219609125" duration="781000" />
       <workItem from="1662253545834" duration="6794000" />
       <workItem from="1662290737701" duration="15494000" />
-      <workItem from="1662385235951" duration="14000000" />
+      <workItem from="1662385235951" duration="16999000" />
+      <workItem from="1663341353404" duration="134000" />
+      <workItem from="1663424044907" duration="4038000" />
     </task>
     <task id="LOCAL-00004" summary="图中是否有环检测">
       <created>1661790513580</created>
@@ -258,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662475645933</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="水桶问题">
+      <created>1662646486376</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1662646486376</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +295,8 @@
     <MESSAGE value="Code1091ShortestPathInBinaryMatrix" />
     <MESSAGE value="modify README.md" />
     <MESSAGE value="Code752OpenTheLock" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code752OpenTheLock" />
+    <MESSAGE value="水桶问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="水桶问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
