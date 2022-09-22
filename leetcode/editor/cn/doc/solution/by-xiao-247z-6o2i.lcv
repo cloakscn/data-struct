@@ -1,0 +1,54 @@
+### 解题思路
+
+这题的主要思路是判断pieces中的每一个piece在arr中是否连续，有点“分治”的意思
+方法定义的有点多，各位凑活着看吧
+![image.png](https://pic.leetcode-cn.com/1663828013-KlrfWU-image.png)
+
+### 代码
+
+* java
+
+```java
+class Solution {
+    public boolean canFormArray(int[] arr, int[][] pieces) {
+        boolean flag = true;
+        for (int i = 0; i < pieces.length && flag; i++) {
+            //依次校验pieces中每一个piece是否在arr中连续
+            flag = checkPiece(arr, pieces[i]);
+        }
+        return flag;
+    }
+
+    //找元素的下标
+    public int getIndex(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    //校验piece在arr中是否连续
+    public boolean checkPiece(int[] arr, int[] piece) {
+        //首元素地址
+        int index = getIndex(arr, piece[0]);
+        //piece中只有一个元素时特殊处理
+        if (piece.length == 1) {
+            //首元素都不存在 后续就不用判断了
+            return index != -1;
+        }
+        for (int i = 1; i < piece.length; i++) {
+            if (getIndex(arr, piece[i]) == index + 1) {
+                index += 1;
+            } else {
+                //不是连续的
+                return false;
+            }
+        }
+        //走到这说明该piece各个元素都存在arr中，且是连续分布的
+        return true;
+    }
+}
+```
+
