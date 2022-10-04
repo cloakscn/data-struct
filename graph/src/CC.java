@@ -1,6 +1,8 @@
+import graph.Graph;
+
 import java.util.ArrayList;
 
-public class CC extends GraphDFS {
+public class CC {
 
     private Graph G;
 
@@ -23,7 +25,7 @@ public class CC extends GraphDFS {
         }
     }
 
-    private void dfs(int v, int CCCount) {
+    public void dfs(int v, int CCCount) {
         visited[v] = CCCount;
         for (int w : G.adj(v)) {
             if (visited[w] == -1) {

@@ -1,6 +1,8 @@
+import graph.Graph;
+
 import java.util.ArrayList;
 
-public class GraphDFS {
+public class GraphDFS implements DFS {
 
     private Graph G;
 
@@ -23,7 +25,8 @@ public class GraphDFS {
         }
     }
 
-    private void dfs(int v) {
+    @Override
+    public void dfs(int v) {
         visited[v] = true;
         pre.add(v);
         for (int w : G.adj(v)) {

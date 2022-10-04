@@ -1,15 +1,17 @@
+package graph;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.TreeSet;
 
-public class AdjList implements Graph {
+public class AdjSet implements Graph, Cloneable {
 
     private int V;
     private int E;
-    private LinkedList<Integer>[] adj;
+    private TreeSet<Integer>[] adj;
 
-    public AdjList(String filename) {
+    public AdjSet(String filename) {
         File file = new File(filename);
 
         try (Scanner scanner = new Scanner(file)) {
@@ -17,9 +19,9 @@ public class AdjList implements Graph {
             if (V < 0) throw new IllegalArgumentException("V must be non-negative");
             E = scanner.nextInt();
             if (E < 0) throw new IllegalArgumentException("E must be non-negative");
-            adj = new LinkedList[V];
+            adj = new TreeSet[V];
             for (int i = 0; i < V; i++) {
-                adj[i] = new LinkedList<Integer>();
+                adj[i] = new TreeSet();
             }
 
             // todo 构造邻接矩阵
@@ -40,6 +42,32 @@ public class AdjList implements Graph {
         }
     }
 
+    // 判断顶点合法性
+    @Override
+    public void validateVertex(int v) {
+        if (v < 0 || v >= V) {
+            throw new IllegalArgumentException("vertex " + v + " is invalid");
+        }
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            AdjSet cloned = (AdjSet) super.clone();
+            cloned.adj = new TreeSet[V];
+            for (int v = 0; v < V; v++) {
+                cloned.adj[v] = new TreeSet<>();
+                for(int w : adj[v]) {
+                    cloned.adj[v].add(w);
+                }
+            }
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
 
@@ -57,13 +85,6 @@ public class AdjList implements Graph {
         return sb.toString();
     }
 
-    @Override
-    public void validateVertex(int v) {
-        if (v < 0 || v >= V) {
-            throw new IllegalArgumentException("vertex " + v + " is invalid");
-        }
-    }
-
     // 对外开放接口
     @Override
     public int V() {
@@ -73,6 +94,15 @@ public class AdjList implements Graph {
     @Override
     public int E() {
         return E;
+    }
+
+    @Override
+    public void removeEdge(int v, int w) {
+        validateVertex(v);
+        validateVertex(w);
+
+        adj[v].remove(w);
+        adj[w].remove(v);
     }
 
     // 是否有邻边
@@ -85,7 +115,7 @@ public class AdjList implements Graph {
 
     // 获取邻边接口
     @Override
-    public Iterable<Integer> adj(int v) {
+    public Iterable adj(int v) {
         validateVertex(v);
         return adj[v];
     }
@@ -96,5 +126,4 @@ public class AdjList implements Graph {
         validateVertex(v);
         return adj[v].size();
     }
-
 }

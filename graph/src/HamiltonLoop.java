@@ -1,10 +1,11 @@
+import graph.AdjList;
+import graph.Graph;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class HamiltonLoop {
     private Graph G;
-
-    private boolean[] visited;
 
     private int[] pre;
 
@@ -13,15 +14,15 @@ public class HamiltonLoop {
 
     public HamiltonLoop(Graph G) {
         this.G = G;
-        visited = new boolean[G.V()];
+        int visited = 0;
         pre = new int[G.V()];
         end = -1;
         // 保证非连通图遍历不遗漏
-        dfs(0, 0, G.V());
+        dfs(visited, 0, 0, G.V());
     }
 
-    private boolean dfs(int v, int parent, int left) {
-        visited[v] = true;
+    private boolean dfs(int visited, int v, int parent, int left) {
+        visited += (1 << v);
         pre[v] = parent;
         left--;
         if (left == 0 && G.hasEdge(v, 0)) {
@@ -29,11 +30,11 @@ public class HamiltonLoop {
             return true;
         }
         for (int w : G.adj(v)) {
-            if (!visited[w]) {
-                if (dfs(w, v, left)) return true;
+            if ((visited & (1 << w)) == 0) {
+                if (dfs(visited, w, v, left)) return true;
             }
         }
-        visited[v] = false;
+        visited -= (1 << v);
         return false;
     }
 

@@ -1,8 +1,10 @@
+import graph.Graph;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class GraphBFS {
+public class GraphBFS implements BFS {
 
     private Graph G;
 
@@ -26,7 +28,8 @@ public class GraphBFS {
      * 广度优先遍历
      * @param s
      */
-    private void bfs(int s) {
+    @Override
+    public void bfs(int s) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(s);
         visited[s] = true;
@@ -46,4 +49,5 @@ public class GraphBFS {
     public Iterable<Integer> order() {
         return order;
     }
+
 }

@@ -53,6 +53,8 @@
 
 package cn;
 
+import java.util.Arrays;
+
 /**
  * @author cloaks
  * @questionId 980
@@ -70,7 +72,7 @@ public class Code980UniquePathsIii {
     class Solution {
         private int[][] grid;
         private int row, col, start, end;
-        private boolean[][] visited;
+        private int[][] memory;
         private int[][] directions = {
                 {-1, 0},
                 {0, -1},
@@ -82,8 +84,12 @@ public class Code980UniquePathsIii {
             this.grid = grid;
             this.row = grid.length;
             this.col = grid[0].length;
-            visited = new boolean[row][col];
+            int visited = 0;
             int left = row * col;
+            memory = new int[1 << (row * col)][(row * col)];
+            for (int i = 0; i < memory.length; i++) {
+                Arrays.fill(memory[i], -1);
+            }
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
                     if (grid[i][j] == 1) {
@@ -99,27 +105,35 @@ public class Code980UniquePathsIii {
                     }
                 }
             }
-            return dfs(start, left);
+            return dfs(visited, start, left);
         }
 
-        private int dfs(int v, int left) {
-            int x = v / col, y = v % col;
-            visited[x][y] = true;
+        private int dfs(int visited, int v, int left) {
+            if (memory[visited][v] != -1) return memory[visited][v];
+            visited += (1 << v);
             left--;
             if (left == 0 && v == end) {
-                visited[x][y] = false;
+                visited -= (1 << v);
+                memory[visited][v] = 1;
                 return 1;
             }
+            int x = v / col, y = v % col;
             int result = 0;
             for (int d = 0; d < 4; d++) {
                 int nextX = x + directions[d][0], nextY = y + directions[d][1];
-                if (inArea(nextX, nextY) && grid[nextX][nextY] == 0 && !visited[nextX][nextY]) {
-                    result += dfs(nextX * col + nextY, left);
+                int next = nextX * col + nextY;
+                if (inArea(nextX, nextY) && grid[nextX][nextY] == 0 && (visited & (1 << next)) == 0) {
+                    result += dfs(visited, next, left);
                 }
             }
 
-            visited[x][y] = false;
+            visited -= (1 << v);
+            memory[visited][v] = result;
             return result;
+        }
+
+        private boolean hasVisited(int visited, int x, int y) {
+            return (visited & (1 << x * col + y)) != 0 ? true : false;
         }
 
         private boolean inArea(int x, int y) {

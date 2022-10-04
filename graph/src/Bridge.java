@@ -1,3 +1,6 @@
+import graph.AdjList;
+import graph.Graph;
+
 import java.util.ArrayList;
 
 public class Bridge {

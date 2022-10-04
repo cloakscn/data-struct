@@ -1,3 +1,5 @@
+import graph.Graph;
+
 import java.util.ArrayList;
 
 public class Path extends GraphDFS {

@@ -1,14 +1,19 @@
+import graph.AdjList;
+import graph.AdjMatrix;
+import graph.AdjSet;
+import graph.Graph;
+
 import java.util.ArrayList;
 
 public class Main {
 
-    private final static Graph adjSet = new AdjSet("graph/src/sources/AdjSet.txt");
+    private final static Graph adjSet = new AdjSet("graph/src/sources/graph.AdjSet.txt");
 
     private final static Graph graphBFS_test_data = new AdjSet("graph/src/sources/GraphBFS.txt");
 
-    private final static Graph adjMatrix = new AdjMatrix("graph/src/sources/AdjMatrix.txt");
+    private final static Graph adjMatrix = new AdjMatrix("graph/src/sources/graph.AdjMatrix.txt");
 
-    private final static Graph adjList = new AdjList("graph/src/sources/AdjList.txt");
+    private final static Graph adjList = new AdjList("graph/src/sources/graph.AdjList.txt");
 
     public static void main(String[] args) {
         System.out.println("Hello world!\n");

@@ -1,3 +1,5 @@
+import graph.Graph;
+
 /**
  * 二分图检测
  */
