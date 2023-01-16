@@ -61,7 +61,8 @@ public class Code1TwoSum{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-
+        int[] newSum = new int[nums.length];
+        return newSum;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

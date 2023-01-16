@@ -56,6 +56,10 @@
 
 
 package cn;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author cloaks
  * @questionId 6
@@ -63,18 +67,88 @@ package cn;
  * @titleSlug zigzag-conversion
  * @date 2022-09-08 12:00:36
  */
-public class Code6ZigzagConversion{
+public class Code6ZigzagConversion {
     public static void main(String[] args) {
         System.out.println("hello world!");
         Solution solution = new Code6ZigzagConversion().new Solution();
+        System.out.println(solution.convert("PAYPALISHIRING", 4));
+        System.out.println("PAHNAPLSIIGYIR");
     }
-    
+
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public String convert(String s, int numRows) {
-        return "";
+
+    class Solution {
+        public String convert(String s, int numRows) {
+            if (numRows == 1) return s;
+
+            List<StringBuffer> arrays = new ArrayList<>();
+            for (int i = 0; i < numRows; i++) {
+                arrays.add(new StringBuffer());
+            }
+
+            int col_index = 0;
+            boolean flag = true;
+            for (int i = 0; i < s.length(); i++) {
+                if (flag) {
+                    arrays.get(col_index).append(s.charAt(i));
+                    col_index++;
+                    if (col_index == numRows) {
+                        col_index -= 2;
+                        flag = false;
+                    }
+                } else {
+                    arrays.get(col_index).append(s.charAt(i));
+                    col_index--;
+                    if (col_index == -1) {
+                        col_index += 2;
+                        flag = true;
+                    }
+                }
+            }
+
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < numRows; i++) {
+                sb.append(arrays.get(i));
+            }
+            return sb.toString();
+        }
     }
-}
+    class Solution1 {
+        public String convert(String s, int numRows) {
+            if (numRows == 1) return s;
+
+            List<StringBuffer> arrays = new ArrayList<>();
+            for (int i = 0; i < numRows; i++) {
+                arrays.add(new StringBuffer());
+            }
+
+            int col_index = 0;
+            boolean flag = true;
+            for (int i = 0; i < s.length(); i++) {
+                if (flag) {
+                    arrays.get(col_index).append(s.charAt(i));
+                    col_index++;
+                    if (col_index == numRows) {
+                        col_index -= 2;
+                        flag = false;
+                    }
+                } else {
+                    arrays.get(col_index).append(s.charAt(i));
+                    col_index--;
+                    if (col_index == -1) {
+                        col_index += 2;
+                        flag = true;
+                    }
+                }
+            }
+
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < numRows; i++) {
+                sb.append(arrays.get(i));
+            }
+            return sb.toString();
+        }
+    }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
