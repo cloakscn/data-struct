@@ -87,23 +87,15 @@ public class Code6ZigzagConversion {
             }
 
             int col_index = 0;
-            boolean flag = true;
+            int increase = 1;
             for (int i = 0; i < s.length(); i++) {
-                if (flag) {
-                    arrays.get(col_index).append(s.charAt(i));
-                    col_index++;
-                    if (col_index == numRows) {
-                        col_index -= 2;
-                        flag = false;
-                    }
-                } else {
-                    arrays.get(col_index).append(s.charAt(i));
-                    col_index--;
-                    if (col_index == -1) {
-                        col_index += 2;
-                        flag = true;
-                    }
+                arrays.get(col_index).append(s.charAt(i));
+                if (col_index == 0) {
+                    increase = 1;
+                } else if (col_index == numRows - 1) {
+                    increase = -1;
                 }
+                col_index += increase;
             }
 
             StringBuffer sb = new StringBuffer();
@@ -113,6 +105,7 @@ public class Code6ZigzagConversion {
             return sb.toString();
         }
     }
+
     class Solution1 {
         public String convert(String s, int numRows) {
             if (numRows == 1) return s;
