@@ -40,8 +40,6 @@
 
 package cn;
 
-import java.util.ArrayList;
-
 /**
  * @author cloaks
  * @questionId 707

@@ -63,8 +63,6 @@
 
 package cn;
 
-import java.util.Arrays;
-
 /**
  * @author cloaks
  * @questionId 2303
