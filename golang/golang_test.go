@@ -9,7 +9,7 @@ func TestIsPalindrome(t *testing.T) {
 	num := int64(11)
 
 	for {
-		if IsPalindrome(num) {
+		if isPalindrome(num) {
 			t.Logf("num: %v is palindrome", num)
 			t.Logf("binary: %v", strconv.FormatInt(num, 2))
 			t.Logf("octal: %v", strconv.FormatInt(num, 8))

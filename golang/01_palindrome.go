@@ -12,7 +12,7 @@ func reverse(s string) string {
 	return string(runes)
 }
 
-func IsPalindrome(num int64) bool {
+func isPalindrome(num int64) bool {
 	binary := strconv.FormatInt(num, 2)
 	if reverse(binary) != binary {
 		return false
